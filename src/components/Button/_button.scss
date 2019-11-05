@@ -1,0 +1,76 @@
+.button {
+  display: inline-block;
+  padding: 15px 30px;
+  font-size: rem-calc(12);
+  font-weight: 600;
+  line-height: rem-calc(12);
+  border-radius: $global-radius;
+  position: relative;
+  overflow: hidden;
+  user-select: none;
+  cursor: pointer;
+
+  &:disabled {
+    opacity: 0.4 !important;
+    &:hover {
+      cursor: inherit;
+    }
+  }
+}
+
+button.button{
+  &-primary,
+  &-secondary,
+  &-icon {
+    text-transform: uppercase;
+    color: $color-white;
+  }
+  &-primary {
+    background: $color-primary;
+
+    &:not(:disabled) {
+      @include theming {
+        &:hover,
+        &:focus {
+          background: t(button-hover-primary);
+        }
+      }
+    }
+  }
+  &-secondary {
+    background: $color-dark-50;
+
+    &:not(.disabled) {
+      @include theming {
+        &:hover,
+        &:focus {
+          background: t(button-hover-secondary);
+        }
+      }
+    }
+  }
+  &-icon {
+    &:before{
+      font-size: 12px;
+      margin-right: 12px;
+    }
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+a.button{
+  text-transform: inherit;
+  font-size: rem-calc(14);
+  @include theming {
+    color: t(color-button-link);
+    transition: color 0.5s;
+  }
+
+  &:not(.disabled) {
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
+  }
+}

@@ -1,0 +1,82 @@
+@function rem-calc($size) {
+  $remSize: $size / $pixel-default;
+  @return #{$remSize}rem;
+}
+
+@function em-calc($size) {
+  $emSize: $size / $pixel-default;
+  @return #{$emSize}em;
+}
+
+@mixin around-icon {
+  font-family: 'Around' !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+}
+
+@mixin box-shadow($top, $left, $blur, $color, $inset: false) {
+  @if $inset {
+    -webkit-box-shadow: inset $top $left $blur $color;
+    -moz-box-shadow: inset $top $left $blur $color;
+    box-shadow: inset $top $left $blur $color;
+  } @else {
+    -webkit-box-shadow: $top $left $blur $color;
+    -moz-box-shadow: $top $left $blur $color;
+    box-shadow: $top $left $blur $color;
+  }
+}
+
+@mixin optional-at-root($sel) {
+  @at-root #{if(not &, $sel, selector-append(&, $sel))} {
+    @content;
+  }
+}
+
+@mixin placeholder {
+  &.placeholder {
+    @content;
+  }
+  &:-moz-placeholder {
+    @content;
+  }
+  &::-moz-placeholder {
+    @content;
+  }
+  &::-webkit-input-placeholder {
+    @content;
+  }
+}
+
+@mixin diagonal-gradient($color1, $color2, $color3, $color4, $color5, $color6) {
+  background: $color1;
+  background: -moz-linear-gradient(
+    45deg,
+    $color1 0%,
+    $color2 17%,
+    $color3 33%,
+    $color4 67%,
+    $color5 83%,
+    $color6 100%
+  );
+  background: -webkit-linear-gradient(
+    45deg,
+    $color1 0%,
+    $color2 17%,
+    $color3 33%,
+    $color4 67%,
+    $color5 83%,
+    $color6 100%
+  );
+  background: linear-gradient(
+    45deg,
+    $color1 0%,
+    $color2 17%,
+    $color3 33%,
+    $color4 67%,
+    $color5 83%,
+    $color6 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$color1', endColorstr='$color6', GradientType=1);
+}

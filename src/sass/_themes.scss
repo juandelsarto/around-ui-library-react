@@ -1,0 +1,106 @@
+// Around Map Themes
+$themes: (
+  default: (
+    bg-primary: $color-light,
+    bg-secondary: $color-white,
+    bg-third: $color-dark,
+    bg-sidebar: $color-gradient,
+    color-primary: $color-dark,
+    color-secondary: $color-dark-50,
+    color-third: $color-gray,
+    color-breadcrumbs: $color-dark-50,
+    bg-tooltip: $color-gray-30,
+    border-tooltip: $color-gray-30,
+    color-tabs: $color-dark,
+    color-tabs-link: $color-primary,
+    border-tabs: $color-gray,
+    btn-hover-primary: darken($color-primary, 30%),
+    btn-hover-secondary: darken($color-dark-50, 10%),
+    color-btn-link: $color-primary,
+    bg-color-header: $color-light,
+    color-input-text-feedback: $color-gray,
+    bg-input-text-focus: $color-white,
+    color-datepicker-icon: $color-gray,
+    color-datepicker-icon-focus: $color-primary,
+    bg-search: $color-white,
+    bg-search-focus: $color-white,
+    color-search-icon: $color-gray,
+    bg-input-form: $color-white,
+    bg-input-form-focus: $color-white,
+    border-input-form: $color-gray-30,
+    bg-table-head: $color-gray-30,
+    color-table-head: $color-dark,
+    border-table: $color-gray-30,
+    bg-table-row: $color-white,
+    bg-table-row-hover: $color-light,
+    bg-table-head-multiple: $color-gray,
+    color-pagination: $color-dark-50,
+    color-pagination-link: $color-primary,
+    bg-theme-container: $color-light,
+    logo: unset,
+  ),
+  dark: (
+    bg-primary: $color-black,
+    bg-secondary: $color-gray,
+    bg-third: $color-dark-50,
+    bg-sidebar: $color-dark,
+    color-primary: $color-white,
+    color-secondary: $color-gray,
+    color-third: $color-white,
+    color-breadcrumbs: $color-white,
+    bg-tooltip: $color-white,
+    border-tooltip: $color-gray-30,
+    color-tabs: $color-gray,
+    color-tabs-link: $color-white,
+    border-tabs: $color-dark-50,
+    btn-hover-primary: lighten($color-primary, 10%),
+    btn-hover-secondary: lighten($color-dark-50, 10%),
+    color-btn-link: $color-white,
+    bg-color-header: $color-dark,
+    color-input-text-feedback: $color-white,
+    bg-input-text-focus: $color-gray,
+    color-datepicker-icon: $color-white,
+    color-datepicker-icon-focus: $color-white,
+    bg-search: $color-dark-50,
+    bg-search-focus: $color-gray,
+    color-search-icon: $color-white,
+    bg-input-form: $color-dark,
+    bg-input-form-focus: $color-dark-50,
+    border-input-form: $color-dark-50,
+    bg-table-head: $color-dark,
+    color-table-head: $color-gray,
+    border-table: $color-black,
+    bg-table-row: $color-gray-30,
+    bg-table-row-hover: $color-gray,
+    bg-table-head-multiple: $color-dark-50,
+    color-pagination: $color-gray,
+    color-pagination-link: $color-white,
+    bg-theme-container: $color-black,
+    logo: brightness(3),
+  ),
+);
+
+@mixin theming() {
+  @each $theme, $map in $themes {
+    .theme-#{$theme} & {
+      $theme-map: () !global;
+
+      @each $key, $submap in $map {
+        $value: map-get(map-get($themes, $theme), '#{$key}');
+
+        $theme-map: map-merge(
+          $theme-map,
+          (
+            $key: $value,
+          )
+        ) !global;
+      }
+      @content;
+      $theme-map: null !global;
+    }
+  }
+}
+
+@function t($key) {
+  @return map-get($theme-map, $key);
+}

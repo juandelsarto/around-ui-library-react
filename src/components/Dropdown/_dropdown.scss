@@ -1,0 +1,128 @@
+.dropdown {
+  position: relative;
+  display: inline-block;
+
+  &-menu {
+    visibility: hidden;
+    position: absolute;
+    min-width: 170px;
+    right: 0;
+    overflow: hidden;
+    border-radius: $global-radius;
+    box-shadow: $box-shadow-default;
+    z-index: 1030;
+    text-align: left;
+
+    .dropdown-item {
+      display: block;
+      font-weight: 500;
+      padding: 10px 0 10px 10px;
+      @include theming {
+        color: t(color-primary);
+        background: t(bg-input-form);
+      }
+
+      &:hover {
+        background: $color-primary;
+        color: $color-white;
+      }
+    }
+  }
+
+  &:hover {
+    & *[class^='button-dropdown'] {
+      &:not(.disabled) {
+        &:after {
+          transform: rotate(-180deg);
+        }
+        & + .dropdown-menu {
+          visibility: visible !important;
+        }
+      }
+    }
+  }
+}
+
+.button {
+  &-dropdown,
+  &-dropdown-link {
+    &:after {
+      content: '\6b';
+      @include around-icon;
+      font-size: rem-calc(8);
+      margin: 0 0 0 rem-calc(8);
+      display: inline-block;
+      transition: transform 0.2s ease !important;
+    }
+  }
+
+  &-dropdown {
+    color: $color-white !important;
+    background: $color-dark-50;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-align: left !important;
+
+    &-link {
+      padding-left: 15px;
+      padding-right: 0;
+      text-align: left !important;
+      background: none;
+      font-weight: 500;
+      @include theming {
+        color: t(color-primary);
+        transition: color 0.5s;
+      }
+
+      &:after {
+        @include theming {
+          color: t(color-third);
+        }
+        margin: 0 rem-calc(8);
+      }
+    }
+
+    &:not(.disabled) {
+      @include theming {
+        &:hover,
+        &:focus {
+          background: t(button-hover-secondary);
+        }
+      }
+    }
+
+    &-option {
+      padding-left: 15px;
+      padding-right: 15px;
+      position: relative;
+      &:after {
+        content: '\74';
+        @include around-icon;
+        position: relative;
+        @include theming {
+          color: t(color-third);
+        }
+      }
+      &:before {
+        content: '';
+        position: absolute;
+        top: 3px;
+        left: 3px;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: $color-gray-30;
+        transform: scale(0);
+        transition: transform 0.2s ease-out;
+      }
+      &:not(.disabled) {
+        &:hover,
+        &:focus {
+          &:before {
+            transform: scale(1);
+          }
+        }
+      }
+    }
+  }
+}

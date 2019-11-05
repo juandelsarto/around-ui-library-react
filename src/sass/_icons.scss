@@ -1,0 +1,295 @@
+@font-face {
+  font-family: 'Around';
+  src: url('../fonts/around-font.eot');
+  src: url('../fonts/around-font.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/around-font.woff') format('woff'),
+    url('../fonts/around-font.ttf') format('truetype'),
+    url('../fonts/around-font.svg#around-font') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[data-icon]::before {
+  font-family: 'Around' !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^='icon-']::before,
+[class*=' icon-']::before {
+  font-family: 'Around' !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 14px;
+}
+
+.icon {
+  &-staff::before {
+    content: '\67';
+  }
+
+  &-order-down::before {
+    content: '\68';
+  }
+
+  &-order-up::before {
+    content: '\69';
+  }
+
+  &-filter::before {
+    content: '\6a';
+  }
+
+  &-arrow-down::before {
+    content: '\6b';
+  }
+
+  &-arrow-next::before {
+    content: '\6c';
+  }
+
+  &-arrow-prev::before {
+    content: '\6d';
+  }
+
+  &-plus::before {
+    content: '\6e';
+  }
+
+  &-minus::before {
+    content: '\6f';
+  }
+
+  &-more::before {
+    content: '\74';
+  }
+
+  &-loading::before {
+    content: '\75';
+  }
+
+  &-flag::before {
+    content: '\76';
+  }
+
+  &-warning::before {
+    content: '\77';
+  }
+
+  &-help::before {
+    content: '\78';
+  }
+
+  &-edit::before {
+    content: '\79';
+  }
+
+  &-play::before {
+    content: '\7a';
+  }
+
+  &-pause::before {
+    content: '\41';
+  }
+
+  &-volume-off::before {
+    content: '\42';
+  }
+
+  &-mark-in::before {
+    content: '\47';
+  }
+
+  &-fast-forward::before {
+    content: '\48';
+  }
+
+  &-fast-backward::before {
+    content: '\49';
+  }
+
+  &-forward::before {
+    content: '\4a';
+  }
+
+  &-backward::before {
+    content: '\4b';
+  }
+
+  &-sync::before {
+    content: '\4c';
+  }
+
+  &-media::before {
+    content: '\4d';
+  }
+
+  &-arrow-up::before {
+    content: '\4e';
+  }
+
+  &-search::before {
+    content: '\4f';
+  }
+
+  &-calendar::before {
+    content: '\64';
+  }
+
+  &-big-arrow-prev::before {
+    content: '\61';
+  }
+
+  &-big-arrow-next::before {
+    content: '\62';
+  }
+
+  &-hamburger::before {
+    content: '\63';
+  }
+
+  &-mpx::before {
+    content: '\72';
+  }
+
+  &-tvod::before {
+    content: '\65';
+  }
+
+  &-quickplay::before {
+    content: '\73';
+  }
+
+  &-mark-out::before {
+    content: '\43';
+  }
+
+  &-cross::before {
+    content: '\44';
+  }
+
+  &-check::before {
+    content: '\45';
+  }
+
+  &-exit-fullscreen::before {
+    content: '\46';
+  }
+
+  &-enter-fullscreen::before {
+    content: '\50';
+  }
+
+  &-volume-on::before {
+    content: '\51';
+  }
+
+  &-upload::before {
+    content: '\52';
+  }
+
+  &-download::before {
+    content: '\53';
+  }
+
+  &-stop::before {
+    content: '\54';
+  }
+
+  &-geolocalization::before {
+    content: '\55';
+  }
+}
+
+.icon-mpx {
+  color: #7fb343;
+}
+
+.icon-quickplay {
+  color: #b52227;
+}
+
+.icon-tvod {
+  color: #ea6637;
+}
+
+.icon-point {
+  border-radius: 100%;
+  box-shadow: inset 0 0 0 7px;
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  vertical-align: middle;
+
+  &:before {
+    content: '';
+    background: $color-white;
+    border-radius: 100%;
+    width: 12px;
+    height: 12px;
+    display: block;
+    margin: 4px auto;
+    position: relative;
+    top: 2px;
+  }
+  &.yellow {
+    box-shadow: inset 0 0 0 4px rgba($color-yellow, 0.5);
+
+    &:before {
+      background: $color-yellow;
+    }
+  }
+  &.green {
+    box-shadow: inset 0 0 0 4px rgba($color-green, 0.5);
+
+    &:before {
+      background: $color-green;
+    }
+  }
+  &.red {
+    box-shadow: inset 0 0 0 4px rgba($color-red, 0.5);
+
+    &:before {
+      background: $color-red;
+    }
+  }
+  &.lightblue {
+    box-shadow: inset 0 0 0 4px rgba($color-lightblue, 0.5);
+
+    &:before {
+      background: $color-lightblue;
+    }
+  }
+}
+
+/* Useful Variables */
+
+/* Icons Around */
+$arrow-prev: '\6d';
+$arrow-down: '\6b';
+$icon-volume-off: '\42';
+$big-arrow-prev: '\61';
+$btn-play: '\7a';
+$btn-pause: '\41';
+$arrow-next: '\6c';
+$icon-check: '\45';
+$icon-cross: '\44';
+$icon-help: '\78';
+
+/* Icons FontAwesome */
+$fa-angle-left: '\f104';
+$fa-angle-right: '\f105';
+$fa-check: '\f00c';

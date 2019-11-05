@@ -1,0 +1,45 @@
+html {
+  box-sizing: border-box;
+  font-size: $global-font-size;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+// Set box-sizing globally to handle padding and border widths
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+*:focus {
+  outline: none;
+}
+
+// Default body styles
+body {
+  margin: 0;
+  padding: 0;
+  font-family: $main-font;
+  font-weight: $global-weight-normal;
+  line-height: $global-lineheight;
+  z-index: 1;
+}
+
+img {
+  display: inline-block;
+  vertical-align: middle;
+  max-width: 100%;
+  height: inherit;
+  -ms-interpolation-mode: bicubic;
+}
+
+button {
+  padding: 0;
+  appearance: none;
+  border: 0;
+  border-radius: $global-radius;
+  background: transparent;
+  line-height: 1;
+  white-space: pre-wrap;
+  font: inherit;
+  cursor: pointer;
+}

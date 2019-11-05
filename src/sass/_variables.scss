@@ -1,0 +1,45 @@
+// 1. Global
+// ---------
+// Default Pixel Size
+$pixel-default: 16;
+
+// Font
+$global-font-size: 100%;
+$global-width: rem-calc(1366);
+$global-lineheight: 1.5;
+$global-weight-normal: 500;
+$global-radius: rem-calc(3);
+
+// Box Shadow
+$box-shadow-default: 0 2px 4px rgba(39, 48, 80, 0.2);
+
+// Colors
+// Primary colors
+$color-primary: #6d48ff;
+$color-black: #273050;
+$color-white: #fff;
+$color-gradient: linear-gradient(45deg, #3a4468, #273050);
+
+// Neutral colors
+$color-dark: #18203e; //gray-1
+$color-dark-50: #5d6787; //gray-2
+$color-gray: #99a2c1; //gray-3
+$color-gray-30: rgba($color-gray, 0.3); //gray-4
+$color-light: #f7f8fe; //gray-5
+
+// Complementary colors
+$color-green: #1bcab1;
+$color-red: #f21e41;
+$color-yellow: #fcbb44;
+$color-lightblue: #5eb1ff;
+
+// Set name colors
+$text-color-primary: $color-dark;
+$text-color-secondary: $color-dark-50;
+$text-color-third: $color-white;
+
+$bg-primary: $color-light;
+$bg-secondary: $color-white;
+$bg-third: $color-dark;
+
+$bg-sidebar: $color-gradient;

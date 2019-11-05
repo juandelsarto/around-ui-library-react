@@ -1,0 +1,119 @@
+.toggle {
+  &-button-hamburger {
+    display: inline-block;
+    position: absolute;
+    height: 19px;
+    width: 20px;
+    cursor: pointer;
+    span {
+      pointer-events: none;
+      width: 20px;
+      height: 3px;
+      display: block;
+      position: absolute;
+      @include theming {
+        background: t(color-third);
+        transition: background 0.5s;
+      }
+      &:nth-child(1) {
+        top: 0;
+      }
+      &:nth-child(2) {
+        top: 8px;
+      }
+      &:nth-child(3) {
+        top: 16px;
+      }
+      transition: all 0.2s cubic-bezier(0, 1.79, 1, 1) !important;
+    }
+
+    &.open {
+      span {
+        &:nth-child(1) {
+          transform: rotate(45deg);
+          transform-origin: top left;
+          width: 23px;
+        }
+        &:nth-child(2) {
+          transform: scale(0);
+        }
+        &:nth-child(3) {
+          transform: rotate(-45deg);
+          transform-origin: bottom left;
+          width: 23px;
+        }
+      }
+    }
+
+    &:not(.open):hover {
+      span {
+        &:nth-child(1) {
+          top: -3px;
+        }
+        &:nth-child(3) {
+          top: 19px;
+        }
+      }
+    }
+  }
+
+  &-button-dots {
+    position: relative;
+    width: 5px;
+    height: 21px;
+    cursor: pointer;
+    span {
+      pointer-events: none;
+      width: 5px;
+      height: 5px;
+      display: block;
+      position: absolute;
+      border-radius: 50%;
+
+      @include theming {
+        background: t(color-third);
+        transition: background 0.5s;
+      }
+      &:nth-child(1) {
+        top: 0;
+      }
+      &:nth-child(2) {
+        top: 8px;
+        z-index: 1;
+        &:after {
+          content: '\44';
+          @include around-icon;
+          display: block;
+          position: absolute;
+          font-size: 3px;
+          @include theming {
+            color: t(bg-input-form);
+          }
+          width: 5px;
+          height: 5px;
+          padding: 1px;
+          opacity: 0;
+        }
+      }
+      &:nth-child(3) {
+        top: 16px;
+      }
+      transition: all 0.2s cubic-bezier(0, 1.79, 1, 1) !important;
+    }
+
+    &.open {
+      span {
+        &:nth-child(1),
+        &:nth-child(3) {
+          top: 8px;
+        }
+        &:nth-child(2) {
+          transform: scale(4, 4);
+          &:after {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+}
